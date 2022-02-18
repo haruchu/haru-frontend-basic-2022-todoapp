@@ -16,6 +16,7 @@ export default Checkbox
 const CheckboxButton = styled.button`
   width: 20px;
   height: 20px;
+  margin-right: 10px;
   padding: 0;
   background-color: transparent;
   border: 2px solid ${COLOR.LIGHT_GRAY};

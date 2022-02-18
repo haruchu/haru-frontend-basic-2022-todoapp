@@ -33,7 +33,7 @@ const StyledInput = styled.input`
   width: 232px;
   height: 20px;
   padding: 0px 4px;
-  color: ${COLOR.WHITE};
+  color: ${COLOR.LIGHT_GRAY};
   background-color: ${COLOR.BLACK};
   ${TEXT.S}
   border: none;
