@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import COLOR from '../../../variables/color'
 import check from "../../../assets/svg/check.svg";
 
-const Checkbox = () => {
+const Checkbox = (props) => {
   return (
-    <CheckboxButton>
+    <CheckboxButton onClick={props.taskComplete}>
       <CheckImg src={check}/>
     </CheckboxButton>
   )
