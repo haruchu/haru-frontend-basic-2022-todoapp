@@ -12,8 +12,8 @@ const SampleButton = (props) => {
   )
 }
 
-const EditButton = () => {
-  return <SampleButton onClick={() => console.log("clicked")} icon={pencil}/>
+const EditButton = (props) => {
+  return <SampleButton onClick={props.onEdit} icon={pencil}/>
 }
 
 export default EditButton
