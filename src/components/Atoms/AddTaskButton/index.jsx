@@ -4,9 +4,9 @@ import plus from "../../../assets/svg/plus.svg";
 import COLOR from '../../../variables/color';
 import TEXT from '../../../variables/texts';
 
-const AddTaskButton = () => {
+const AddTaskButton = (props) => {
   return (
-    <StyledButton>
+    <StyledButton onClick={props.onClick}>
       <IconImg src={plus} />
       <ButtonShadow/>
       <ButtonText>タスクを追加</ButtonText>

@@ -7,9 +7,9 @@ import EditButton from "../../Atoms/EditButton";
 import Input from "../../Atoms/Input";
 
 const Task = (props) => {
-  const [edit, setEdit] = useState(false);
+  const [edit, setEdit] = useState(props.edit);
 
-  const editComplete = (edit) => {
+  const editComplete = (edit, name) => {
     setEdit(!edit);
     console.log("taskname changed: <変更後のタスク名>");
   }
@@ -18,10 +18,9 @@ const Task = (props) => {
     <StyledTask>
       <Checkbox taskComplete={() => console.log("task completed")}/>
       {edit
-        ? <Input defaultValue={ props.text } onEditComplete={() => editComplete(edit)} />
-        : <TaskItem><Text>{ props.text }</Text><EditButton onEdit={() => setEdit(!edit)} /></TaskItem>
+        ? <Input defaultValue={ props.name } onEditComplete={() => editComplete(edit)} />
+        : <TaskItem><Text>{ props.name }</Text><EditButton onEdit={() => setEdit(!edit)} /></TaskItem>
       }
-
     </StyledTask>
   );
 }

@@ -3,7 +3,7 @@ import Component from "./index";
 
 export default {
   component: Component,
-  title: "Molecules/Task",
+  title: "Organisms/TaskCard",
   parameters: {
     backgrounds: {
       default: "dark",
@@ -15,5 +15,4 @@ const Template = (args) => <Component {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  name: ""
 };
