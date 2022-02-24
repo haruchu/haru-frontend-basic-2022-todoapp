@@ -3,45 +3,32 @@ import Task from '../Molecules/Task'
 import AddTaskButton from '../Atoms/AddTaskButton'
 
 const TaskCard = () => {
-  const [tasks, setTasks] = useState([
-    {
-      name: "todo1",
-      status: "TODO"
-    },
-    {
-      name: "todo2",
-      status: "DONE"
-    },
-    {
-      name: "todo3",
-      status: "TODO"
-    },
-    {
-      name: "",
-      status: "TODO"
-    }
-  ]);
-  const task_array = [];
-  tasks.filter(task => task.status === "TODO").map(task => (
-    task_array.push(
+  const [tasks, setTasks] = useState([]);
+  const [taskItems, setTaskItems] = useState([]);
+
+  const addTask = (name, edit) => {
+    setTaskItems([
+      ...taskItems,
       <Task
-        name={task.name}
-        edit={false}
+      name={name}
+      edit={edit}
       />
-    )
-  ));
+    ])
+  }
+
+  useEffect(() => {
+    tasks.filter( task =>  task.status === "TODO" ).map(filteredTask => {
+      addTask(filteredTask.name, false)
+    })
+  }, [tasks])
+
 
   return (
     <>
       <AddTaskButton
-        onClick={() => task_array.push(
-          <Task
-            name=""
-            edit
-          />
-        )}
+        onClick={() => addTask("", true)}
       />
-      { task_array }
+      { taskItems }
     </>
   )
 }
