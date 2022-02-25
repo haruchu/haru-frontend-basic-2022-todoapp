@@ -44,6 +44,18 @@ const TodoCard = () => {
     setTasks(newTasks);
   };
 
+  useEffect(() => {
+    const taskList = JSON.parse(localStorage.getItem("tasklist"));
+    if (taskList === null) {
+      return;
+    }
+    setTaskList(taskList);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("tasklist", JSON.stringify(tasks));
+  }, [tasks]);
+
   return (
     <StyledTodoCard>
       <AddTaskButton
