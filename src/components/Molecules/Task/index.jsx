@@ -11,14 +11,14 @@ const Task = (props) => {
 
   const editComplete = (edit, name) => {
     setEdit(!edit);
-    console.log("taskname changed: <変更後のタスク名>");
+    props.addTaskItem(name, "TODO");
   }
 
   return (
     <StyledTask>
-      <Checkbox taskComplete={() => console.log("task completed")}/>
+      <Checkbox completeTask={props.completeTask}/>
       {edit
-        ? <Input defaultValue={ props.name } onEditComplete={() => editComplete(edit)} />
+        ? <Input defaultValue={ props.name } onEditComplete={(name) => editComplete(edit, name)} />
         : <TaskItem><Text>{ props.name }</Text><EditButton onEdit={() => setEdit(!edit)} /></TaskItem>
       }
     </StyledTask>
