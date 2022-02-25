@@ -3,7 +3,7 @@ import Component from "./index";
 
 export default {
   component: Component,
-  title: "Organisms/TaskCard",
+  title: "Pages/MainPage",
   parameters: {
     backgrounds: {
       default: "dark",
