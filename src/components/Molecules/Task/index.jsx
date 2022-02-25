@@ -35,7 +35,7 @@ const TaskItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 232px;
+  width: 100%;
 `
 
 const Text = styled.span`

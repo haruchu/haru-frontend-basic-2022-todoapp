@@ -17,6 +17,7 @@ const AddTaskButton = (props) => {
 export default AddTaskButton
 
 const StyledButton = styled.button`
+  width: 126px;
   height: 24px;
   background-color: transparent;
   border: none;

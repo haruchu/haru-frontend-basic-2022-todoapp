@@ -1,6 +1,8 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
+import styled from 'styled-components';
 import Task from '../Molecules/Task'
 import AddTaskButton from '../Atoms/AddTaskButton'
+import COLOR from "../../variables/color";
 
 const TaskCard = () => {
   const [tasks, setTasks] = useState([]);
@@ -43,21 +45,40 @@ const TaskCard = () => {
   };
 
   return (
-    <>
+    <StyledTodoCard>
       <AddTaskButton
         onClick={() => addTask()}
       />
-      {tasks.filter(task => task.status == "TODO").map((filteredTask, index) =>
-        <Task
-          key={index}
-          name={filteredTask.name}
-          isEditing={filteredTask.isEditing}
-          completeTask={() => completeTask(index)}
-          editTask={(value) => editTask(value, index)}
-        />
-      )}
-    </>
-  )
+      <StyledTaskList>
+        {tasks.filter(task => task.status == "TODO").map((filteredTask, index) =>
+          <Task
+            key={index}
+            name={filteredTask.name}
+            isEditing={filteredTask.isEditing}
+            completeTask={() => completeTask(index)}
+            editTask={(value) => editTask(value, index)}
+          />
+        )}
+      </StyledTaskList>
+    </StyledTodoCard>
+  );
 }
 
 export default TaskCard
+
+const StyledTodoCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  background-color: ${COLOR.LIGHT_BLACK};
+  padding: 20px;
+  border-radius: 4px;
+`;
+
+const StyledTaskList = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-self: stretch;
+  & > * {
+    margin: 8px;
+  }
+`
