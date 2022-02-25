@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styled from 'styled-components';
-import Task from '../Molecules/Task'
-import AddTaskButton from '../Atoms/AddTaskButton'
-import COLOR from "../../variables/color";
+import Task from '../../Molecules/Task'
+import AddTaskButton from '../../Atoms/AddTaskButton'
+import COLOR from "../../../variables/color";
 
-const TaskCard = () => {
+const TodoCard = () => {
   const [tasks, setTasks] = useState([]);
 
   const addTask = () => {
@@ -64,7 +64,7 @@ const TaskCard = () => {
   );
 }
 
-export default TaskCard
+export default TodoCard
 
 const StyledTodoCard = styled.div`
   display: flex;
