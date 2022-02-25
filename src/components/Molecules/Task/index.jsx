@@ -7,21 +7,20 @@ import EditButton from "../../Atoms/EditButton";
 import Input from "../../Atoms/Input";
 
 const Task = (props) => {
-  const [edit, setEdit] = useState(false);
+  const [isEditing, setIsEditing] = useState(props.isEditing);
 
-  const editComplete = (edit) => {
-    setEdit(!edit);
-    console.log("taskname changed: <変更後のタスク名>");
+  const editComplete = (isEditing, name) => {
+    setIsEditing(!isEditing);
+    props.editTask(name);
   }
 
   return (
     <StyledTask>
-      <Checkbox taskComplete={() => console.log("task completed")}/>
-      {edit
-        ? <Input defaultValue={ props.text } onEditComplete={() => editComplete(edit)} />
-        : <TaskItem><Text>{ props.text }</Text><EditButton onEdit={() => setEdit(!edit)} /></TaskItem>
+      <Checkbox completeTask={props.completeTask}/>
+      {isEditing
+        ? <Input defaultValue={ props.name } editComplete={(name) => editComplete(isEditing, name)} />
+        : <TaskItem><Text>{ props.name }</Text><EditButton onEdit={() => setIsEditing(!isEditing)} /></TaskItem>
       }
-
     </StyledTask>
   );
 }
@@ -36,7 +35,7 @@ const TaskItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 232px;
+  width: 100%;
 `
 
 const Text = styled.span`

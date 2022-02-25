@@ -5,7 +5,7 @@ import check from "../../../assets/svg/check.svg";
 
 const Checkbox = (props) => {
   return (
-    <CheckboxButton onClick={props.taskComplete}>
+    <CheckboxButton onClick={props.completeTask}>
       <CheckImg src={check}/>
     </CheckboxButton>
   )

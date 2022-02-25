@@ -4,7 +4,7 @@ import COLOR from "../../../variables/color";
 import TEXT from "../../../variables/texts";
 
 const Input = (props) => {
-  const ref = useRef(null);
+  const ref = useRef("");
 
   useEffect(() => {
     ref.current.focus();
@@ -14,23 +14,23 @@ const Input = (props) => {
   const pressEnter = (e) => {
     if (e.key == 'Enter') {
       e.preventDefault()
-      props.onEditComplete();
+      props.editComplete(ref.current.value);
     }
   }
 
   return (
-      <StyledInput
-        type="text"
-        ref={ref}
-        onKeyPress={pressEnter}
-        onBlur={props.onEditComplete}
+    <StyledInput
+      type="text"
+      ref={ref}
+      onKeyPress={pressEnter}
+      onBlur={() => props.editComplete(ref.current.value)}
       />
   );
 }
 export default Input;
 
 const StyledInput = styled.input`
-  width: 232px;
+  width: 100%;
   height: 20px;
   padding: 0px 4px;
   color: ${COLOR.LIGHT_GRAY};
