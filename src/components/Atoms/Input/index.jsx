@@ -14,7 +14,7 @@ const Input = (props) => {
   const pressEnter = (e) => {
     if (e.key == 'Enter') {
       e.preventDefault()
-      props.onEditComplete(ref.current.value);
+      props.editComplete(ref.current.value);
     }
   }
 
@@ -23,7 +23,7 @@ const Input = (props) => {
       type="text"
       ref={ref}
       onKeyPress={pressEnter}
-      onBlur={() => props.onEditComplete(ref.current.value)}
+      onBlur={() => props.editComplete(ref.current.value)}
       />
   );
 }
