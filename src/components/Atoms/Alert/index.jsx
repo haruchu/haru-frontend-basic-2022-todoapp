@@ -5,7 +5,7 @@ import TEXT from '../../../variables/texts';
 
 const Alert = (props) => {
   return (
-    <StyledAlert className={props.className}>
+    <StyledAlert visible={ props.visible }>
       <StyledMessage>
         message
       </StyledMessage>
@@ -20,9 +20,8 @@ const StyledAlert = styled.div`
   background-color: ${COLOR.RED};
   border-radius: 4px;
   max-width: 400px;
-  opacity: 0;
-  &.alerting {
-    opacity: 1;
+  ${(props) =>
+    props.visible ? `opacity: 1;` : `opacity: 0;`
   }
 `
 
