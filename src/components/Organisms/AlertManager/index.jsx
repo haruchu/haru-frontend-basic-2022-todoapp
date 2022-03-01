@@ -4,11 +4,12 @@ import Alert from "../../Atoms/Alert";
 
 const AlertManager = () => {
   const AlertHandlerContext = useAlertHandlerContext();
-  const [error, setError] = useState(false);
+  const [error, setError] = useState(true);
 
   useEffect(() => {
     if (error) {
       setTimeout(() => {
+        console.log(AlertHandlerContext.errorText);
         AlertHandlerContext.closeAlert();
         setError(false);
       }, 5000);
